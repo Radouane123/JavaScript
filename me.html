@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JavaScript avec DOM</title>
+		
+		<style type="text/css">
+			table
+			{
+				border: 0;
+				border-collapse: separate;
+			}
+			
+			td, th
+			{
+				padding: 2px;
+				width: 25px;
+				height: 25px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<script src="java.js" type="text/javascript">// mon code qui ne marche pas encore (doit faire le m�me r�sultat que le code plus bas</script>
+		
+		<script type="text/javascript"> // code qui marche, mais pas le mien
+			var page =document.querySelector('body');
+			var table = document.createElement('table');
+			var tr = document.createElement('tr');
+			var td = document.createElement('td');
+			
+			page.appendChild(table);
+			td.innerHTML= 'x';
+			tr.appendChild(td);
+			table.appendChild(tr);
+			
+			for(var d = 1;d<=10;d++)
+			{
+				var td1 = document.createElement('td');
+				td1.innerHTML = d;
+				tr.appendChild(td1);
+			}
+			
+			for(var i=1;i<=10;i++)
+			{
+				var trx=document.createElement('tr');
+				
+				if(i%2 == 0) // on colorise les cases suivant si i est pair ou impair
+				{
+					trx.style.backgroundColor = '#BBB';
+				}
+				else 
+				{
+					trx.backgroundColor = '#999';
+				}
+				
+				var td0=document.createElement('td');
+				td0.innerHTML=i;
+				trx.appendChild(td0);
+				/* creation d une variable td0 contenant une balise de style
+				de type td, affectation de la valeur de i, puis on place la
+				variable td0 dans la variable trx */
+				
+				for(var j=1;j<=10;j++)
+				{ 
+					var tdx=document.createElement('td');
+					tdx.innerHTML= i*j;
+					trx.appendChild(tdx);
+					/* creation de la variable tdx qui contient
+					une balise de style td, affectation de la valeur
+					i*j, puis on place la variable tdx dans la variable trx */
+				}
+				
+				table.appendChild(trx);
+			}
+        </script>
+	</body>
+</html>
